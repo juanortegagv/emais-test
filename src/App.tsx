@@ -19,7 +19,7 @@ const App: React.FC = () => {
   return (
     <div className="container">
       <h1>EMAIS TEST</h1>
-      <div>
+      <div className="tests">
         {tests.map((test) => (
           <button key={test.id} onClick={() => handleButtonClick(test.id)}>
             {test.name}
