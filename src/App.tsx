@@ -1,26 +1,52 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import React, { useState } from "react";
+import { CodeDisplay } from "./components/CodeDisplay";
+import { ExplanationDisplay } from "./components/ExplanationDisplay";
+import {
+  ProblemCodes,
+  SolutionCodes,
+  Explanations,
+  tests,
+} from "./constants/enums";
 
-function App() {
+const App: React.FC = () => {
+  const [selectedTest, setSelectedTest] = useState<string | null>(null);
+
+  const handleButtonClick = (test: string) => {
+    setSelectedTest(test);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <h1>EMAIS TEST</h1>
+      <div>
+        {tests.map((test) => (
+          <button key={test.id} onClick={() => handleButtonClick(test.id)}>
+            {test.name}
+          </button>
+        ))}
+      </div>
+      {selectedTest && (
+        <>
+          <CodeDisplay
+            title={selectedTest}
+            problemCode={
+              ProblemCodes[selectedTest as keyof typeof ProblemCodes]
+            }
+            solutionCode={
+              SolutionCodes[selectedTest as keyof typeof SolutionCodes]
+            }
+          />
+          <ExplanationDisplay
+            title={`${selectedTest} Explanation`}
+            explanation={
+              Explanations[selectedTest as keyof typeof Explanations]
+            }
+          />
+        </>
+      )}
     </div>
   );
-}
+};
 
 export default App;
