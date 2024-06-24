@@ -1,46 +1,47 @@
-# Getting Started with Create React App
+# Proyecto de Pruebas Técnicas en React
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Descripción
 
-## Available Scripts
+Este proyecto es una interfaz desarrollada en React que permite observar y analizar mejor cada una de las pruebas técnicas solicitadas. Se han creado seis pruebas diferentes, y cada una tiene su propio README detallado ubicado en la carpeta `docs` dentro de `src`.
 
-In the project directory, you can run:
+## Estructura del Proyecto
 
-### `npm start`
+El proyecto se compone de los siguientes componentes principales:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- **App**: Componente principal que contiene la lógica para seleccionar y mostrar cada prueba.
+- **CodeDisplay**: Componente que muestra el código del problema y la solución para cada prueba.
+- **ExplanationDisplay**: Componente que muestra la explicación detallada de cada prueba.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Pruebas Disponibles
 
-### `npm test`
+1. **Corrección de Código**
+2. **Refactorización de Código**
+3. **Decisiones de Desarrollo**
+4. **Análisis y Optimización**
+5. **Debugging**
+6. **Testing**
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Cada prueba está acompañada de su correspondiente README detallado, el cual se encuentra en la carpeta `docs` dentro de `src`.
 
-### `npm run build`
+## Librerías Utilizadas
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- **React**: Biblioteca principal para construir la interfaz de usuario.
+- **TypeScript**: Superconjunto de JavaScript que añade tipado estático.
+- **React Testing Library**: Biblioteca para realizar pruebas unitarias de componentes de React.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Instalación
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Para instalar el proyecto y todas sus dependencias, ejecute los siguientes comandos:
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### npm install
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Para correr el proyecto:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### npm run start
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Para correr los tests:
 
-## Learn More
+### npm run test
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
