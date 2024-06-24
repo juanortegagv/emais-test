@@ -62,6 +62,31 @@ export const tests = [
         );
       };
     `,
+    DEBUGGING = `
+     const Counter: React.FC = () => {
+      const [count, setCount] = useState(0);
+
+      const increment = () => {
+        setCount(count + 1);
+      };
+
+      const decrement = () => {
+        setCount(count - 1);
+      };
+
+      useEffect(() => {
+        document.title = \`Count: \${count}\`;
+      }, [increment, decrement]);
+
+      return (
+        <div>
+          <button onClick={increment}>Increment</button>
+          <span>{count}</span>
+          <button onClick={decrement}>Decrement</button>
+        </div>
+      );
+    };
+    `,
   }
   
   export enum SolutionCodes {
@@ -183,6 +208,31 @@ export const tests = [
     
       export default ExpensiveComponent;
     `,
+    DEBUGGING = `
+     const Counter: React.FC = () => {
+      const [count, setCount] = useState(0);
+
+      const increment = () => {
+        setCount(prevCount => prevCount + 1);
+      };
+
+      const decrement = () => {
+        setCount(prevCount => prevCount - 1);
+      };
+
+      useEffect(() => {
+        document.title = \`Count: \${count}\`;
+      }, [count]);
+
+      return (
+        <div>
+          <button onClick={increment}>Increment</button>
+          <span>{count}</span>
+          <button onClick={decrement}>Decrement</button>
+        </div>
+      );
+    };
+  `,
   }
   
   export enum Explanations {
@@ -244,6 +294,14 @@ export const tests = [
    
       **Solución:**
       - **Memorización con useMemo**: Al usar useMemo, nos aseguramos de que processData solo se ejecute cuando data cambie, mejorando así el rendimiento del componente al evitar cálculos innecesarios.
+    `,
+    DEBUGGING = `
+      ##Proceso de Debugging
+
+      1. **Inspección Inicial**: Se inspeccionó el componente y se identificó que el useEffect estaba dependiendo de las funciones increment y decrement.
+      2. **Identificación del Problema**: Se reconoció que el useEffect debería depender del estado count en lugar de las funciones, ya que queremos que el efecto se ejecute cuando count cambia.
+      3. **Uso de Herramientas de Debugging**: Se utilizó el inspector de React Developer Tools para verificar que el useEffect no se estaba ejecutando como se esperaba.
+      4. **Prueba de la Solución**: Se modificó el useEffect para que dependa de count y se verificó que el título del documento se actualiza correctamente con cada cambio en el contador.
     `,
   }
   
