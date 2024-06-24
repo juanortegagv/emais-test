@@ -87,6 +87,26 @@ export const tests = [
       );
     };
     `,
+    TESTING = `
+      interface ButtonCounterProps {
+        label: string;
+      }
+
+      const ButtonCounter: React.FC<ButtonCounterProps> = ({ label }) => {
+        const [count, setCount] = useState(0);
+
+      return (
+        <div>
+          <button onClick={() => setCount(count + 1)}>
+            {label}
+          </button>
+          <p>Count: {count}</p>
+        </div>
+      );
+    };
+
+    export default ButtonCounter;
+    `,
   }
   
   export enum SolutionCodes {
@@ -232,7 +252,24 @@ export const tests = [
         </div>
       );
     };
-  `,
+    `,
+    TESTING = `
+      import React from 'react';
+      import { render, fireEvent, screen } from '@testing-library/react';
+      import ButtonCounter from './ButtonCounter';
+
+      test('ButtonCounter increments count', () => {
+        render(<ButtonCounter label="Click me" />);
+        const button = screen.getByText(/Click me/i);
+        const countText = screen.getByText(/Count: 0/i);
+
+      fireEvent.click(button);
+      expect(countText).toHaveTextContent('Count: 1');
+
+      fireEvent.click(button);
+      expect(countText).toHaveTextContent('Count: 2');
+    });
+    `,
   }
   
   export enum Explanations {
@@ -303,5 +340,13 @@ export const tests = [
       3. **Uso de Herramientas de Debugging**: Se utilizó el inspector de React Developer Tools para verificar que el useEffect no se estaba ejecutando como se esperaba.
       4. **Prueba de la Solución**: Se modificó el useEffect para que dependa de count y se verificó que el título del documento se actualiza correctamente con cada cambio en el contador.
     `,
+    TESTING = `
+      ### Ejecución de los Tests
+
+      1. **Ubicación del test**: El test se encuentra dentro del componente ButtonCounter, en el archivo components
+
+      2. **Arrancar Test**: El test se puede probrar a través de una consola con el comando npm run test
+
+`,
   }
   

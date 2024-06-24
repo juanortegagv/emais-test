@@ -24,3 +24,9 @@ button:hover {
   margin: 0 auto;
   padding: 1rem;
 }
+
+.tests {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
